@@ -31,7 +31,7 @@ function startGame(){
 }
 
 function renderGame(){
-    counting.textContent="Cards: "
+    counting.textContent="  : "
     for (let i=0;  i<cards.length; i++){
         counting.textContent+=cards[i]+" "
     }
