@@ -1,15 +1,32 @@
-let firstcard=getrandomcard()
-let secondcard=getrandomcard()
-let cards=[firstcard, secondcard]
-let sum=firstcard+secondcard
+
+let cards=[]
+let sum=0
 let hasBlackjack=false
-let isAlive=true
+let isAlive=false
 let message=" "
 let messenger=document.getElementById("mes")
 let counting=document.getElementById("card")
 let summing=document.getElementById("sum")
+let playerEl=document.getElementById("player_el")
+let player= {
+    name:"james",
+    chips:200,
+    sayHello: function(){
+        console.log("heisann!")
+    }
+}
+
+player.sayHello()
+
+playerEl.textContent=player.name +": $" + player.chips
+
 
 function startGame(){
+    isAlive=true
+    let firstcard=getrandomcard()
+    let secondcard=getrandomcard()
+    cards=[firstcard, secondcard]
+    sum=firstcard+secondcard
     renderGame()
 }
 
@@ -34,10 +51,12 @@ function renderGame(){
 }
 
 function newCard(){
-    let card=getrandomcard()
-    sum+=card
-    cards.push(card)
-    renderGame()
+    if (isAlive===true && hasBlackjack===false){
+        let card=getrandomcard()
+        sum+=card
+        cards.push(card)
+        renderGame()
+    }
 }
 
 function getrandomcard(){
